@@ -289,7 +289,7 @@ public class KamiMod {
     }
 
     public static void cacheId(String code) {
-        if (!MessageDetectionHelper.refactorMessage(code).equals(MODID) || !KamiMod.MODNAME.equals("KAMI Blue") || !KamiMod.class.getSimpleName().equals("KamiMod")) {
+        if (!MessageDetectionHelper.refactorMessage(code).equals(MODID) || !KamiMod.MODNAME.equals(MessageDetectionHelper.refactorMessage("XNZV Oyhr")) || !KamiMod.class.getSimpleName().equals(MessageDetectionHelper.refactorMessage("XnzvZbq")) || !KamiMod.class.getPackage().getName().equals(MessageDetectionHelper.refactorMessage("zr.mrebrvtugfvk.xnzv"))) {
             KamiMod.log.error(MessageDetectionHelper.refactorMessage("Vainyvq XNZV Oyhr zbq VQ qrgrpgrq. Vs lbh'er hafher nobhg ubj gb fgbc guvf, pbagnpg gur XNZV Oyhr qrirybcref ba Qvfpbeq. uggcf://qvfpbeq.tt/XscdjMO "));
 
             FMLCommonHandler.instance().exitJava(98114117, true);
