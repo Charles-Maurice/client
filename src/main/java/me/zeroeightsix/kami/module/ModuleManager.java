@@ -3,10 +3,7 @@ package me.zeroeightsix.kami.module;
 import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.module.modules.ClickGUI;
-import me.zeroeightsix.kami.util.ClassFinder;
-import me.zeroeightsix.kami.util.EntityUtil;
-import me.zeroeightsix.kami.util.KamiTessellator;
-import me.zeroeightsix.kami.util.Wrapper;
+import me.zeroeightsix.kami.util.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.math.Vec3d;
@@ -31,6 +28,8 @@ public class ModuleManager {
      * Registers modules, and then calls updateLookup() for indexing.
      */
     public void register() {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         KamiMod.log.info("Registering modules...");
         Set<Class> classList = ClassFinder.findClasses(ClickGUI.class.getPackage().getName(), Module.class);
         classList.stream().sorted(Comparator.comparing(Class::getSimpleName)).forEach(aClass -> {

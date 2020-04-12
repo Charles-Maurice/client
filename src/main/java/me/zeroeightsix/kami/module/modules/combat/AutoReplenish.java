@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.combat;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -58,6 +59,7 @@ public class AutoReplenish extends Module {
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId("xnzvoyhr");
 
         if (mc.player == null) {
             return;

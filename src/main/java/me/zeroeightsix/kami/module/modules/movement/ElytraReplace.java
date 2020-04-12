@@ -1,9 +1,11 @@
 package me.zeroeightsix.kami.module.modules.movement;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.module.modules.client.InfoOverlay;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
@@ -28,6 +30,8 @@ public class ElytraReplace extends Module {
 
     @Override
     public void onUpdate() {
+
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
 
         if (inventoryMode.getValue().equals(InventoryMode.OFF) && mc.currentScreen instanceof GuiContainer) {
             return;

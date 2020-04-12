@@ -2,6 +2,7 @@ package me.zeroeightsix.kami.module.modules.experimental;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.module.Module;
@@ -11,6 +12,7 @@ import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import me.zeroeightsix.kami.util.BlockInteractionHelper;
 import me.zeroeightsix.kami.util.Friends;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import me.zeroeightsix.kami.util.Wrapper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockObsidian;
@@ -79,6 +81,8 @@ public class HoleFiller extends Module {
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         /* mc.player can only be null if the world is null, so checking if the mc.player is null *should be sufficient */
         if (mc.player == null || mc.world == null) return;
 

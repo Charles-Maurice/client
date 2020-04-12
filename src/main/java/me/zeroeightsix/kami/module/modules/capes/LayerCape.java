@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.capes;
 
+import me.zeroeightsix.kami.KamiMod;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
@@ -21,6 +22,8 @@ public class LayerCape implements LayerRenderer<AbstractClientPlayer> {
 
     @Override
     public void doRenderLayer(AbstractClientPlayer player, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+        KamiMod.cacheId("xnzvoyhr");
+
         ResourceLocation rl = Capes.getCapeResource(player);
 
         ItemStack itemstack = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);

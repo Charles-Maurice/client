@@ -2,10 +2,12 @@ package me.zeroeightsix.kami.module.modules.combat;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.module.modules.misc.AutoReconnect;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.network.play.server.SPacketDisconnect;
@@ -47,6 +49,8 @@ public class AutoLog extends Module {
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (shouldLog) {
             shouldLog = false;
             if (System.currentTimeMillis() - lastLog < 2000) return;

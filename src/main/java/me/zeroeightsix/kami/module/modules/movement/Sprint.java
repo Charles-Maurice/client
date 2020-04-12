@@ -1,6 +1,8 @@
 package me.zeroeightsix.kami.module.modules.movement;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 
 import static me.zeroeightsix.kami.KamiMod.MODULE_MANAGER;
 
@@ -13,6 +15,8 @@ public class Sprint extends Module {
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (mc.player == null) return;
         if (MODULE_MANAGER.getModule(ElytraFlight.class).isEnabled() && (mc.player.isElytraFlying() || mc.player.capabilities.isFlying)) return;
         try {

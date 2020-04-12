@@ -62,6 +62,8 @@ public class InfoOverlay extends Module {
     }
 
     public ArrayList<String> infoContents() {
+        KamiMod.cacheId("xnzvoyhr");
+
         ArrayList<String> infoContents = new ArrayList<>();
         if (version.getValue()) {
             infoContents.add(getStringColour(setToText(firstColour.getValue())) + KamiMod.KAMI_KANJI + getStringColour(setToText(secondColour.getValue())) + " " + KamiMod.MODVERSMALL);

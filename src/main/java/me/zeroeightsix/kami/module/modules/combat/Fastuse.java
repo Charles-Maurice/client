@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.combat;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -29,11 +30,15 @@ public class Fastuse extends Module {
 
     @Override
     public void onDisable() {
+        KamiMod.cacheId("xnzvoyhr");
+
         mc.rightClickDelayTimer = 4;
     }
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (mc.player == null) return;
 
         if (all.getValue() || bow.getValue() && mc.player.getHeldItemMainhand().getItem() instanceof ItemBow && mc.player.isHandActive() && mc.player.getItemInUseMaxCount() >= 3) {

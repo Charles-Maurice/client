@@ -1,9 +1,11 @@
 package me.zeroeightsix.kami.command.commands;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.command.syntax.ChunkBuilder;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.module.modules.client.ActiveModules;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
@@ -22,6 +24,8 @@ public class ActiveModulesCommand extends Command {
 
     @Override
     public void call(String[] args) {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (args[0] == null || args[1] == null || args[2] == null || args[3] == null) {
             Command.sendErrorMessage(getChatLabel() + "Missing arguments! Please fill out the command syntax properly");
             return;

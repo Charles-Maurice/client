@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.mixin.client;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.modules.capes.Capes;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -17,6 +18,8 @@ public class MixinAbstractClientPlayer {
 
     @Inject(method = "getLocationCape", at = @At(value = "RETURN"), cancellable = true)
     public void getCape(CallbackInfoReturnable<ResourceLocation> callbackInfo) {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (Capes.INSTANCE == null)
             return;
         if ((!Capes.INSTANCE.overrideOtherCapes.getValue()) && (callbackInfo.getReturnValue() != null))

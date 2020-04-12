@@ -8,6 +8,7 @@ import me.zeroeightsix.kami.setting.Settings;
 import me.zeroeightsix.kami.util.ColourHolder;
 import me.zeroeightsix.kami.util.EntityUtil;
 import me.zeroeightsix.kami.util.Friends;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.*;
@@ -252,6 +253,8 @@ public class Nametags extends Module {
     }
 
     public void drawDamage(ItemStack itemstack, int x, int y) {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         float green = ((float) itemstack.getMaxDamage() - (float) itemstack.getItemDamage()) / (float) itemstack.getMaxDamage();
         float red = 1 - green;
         int dmg = 100 - (int) (red * 100);

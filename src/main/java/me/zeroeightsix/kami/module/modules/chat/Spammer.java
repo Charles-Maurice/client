@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.chat;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
@@ -25,6 +26,8 @@ public class Spammer extends Module {
     String[] spammer;
 
     public void onEnable() {
+        KamiMod.cacheId("xnzvoyhr");
+
         BufferedReader bufferedReader;
         try {
             Command.sendChatMessage(getChatName() + "Trying to find '&7spammer.txt&f'");

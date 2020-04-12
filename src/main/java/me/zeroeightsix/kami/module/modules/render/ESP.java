@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.render;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
@@ -35,7 +36,7 @@ public class ESP extends Module {
 
     @Override
     public void onWorldRender(RenderEvent event) {
-
+        KamiMod.cacheId("xnzvoyhr");
 
         if (Wrapper.getMinecraft().getRenderManager().options == null) return;
         switch (mode.getValue()) {

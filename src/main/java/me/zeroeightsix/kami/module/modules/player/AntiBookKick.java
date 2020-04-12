@@ -2,6 +2,7 @@ package me.zeroeightsix.kami.module.modules.player;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.module.Module;
@@ -19,6 +20,8 @@ import net.minecraft.network.play.client.CPacketClickWindow;
 public class AntiBookKick extends Module {
     @EventHandler
     public Listener<PacketEvent.Receive> listener = new Listener<>(event -> {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (!(event.getPacket() instanceof CPacketClickWindow)) return;
         final CPacketClickWindow packet = (CPacketClickWindow) event.getPacket();
 

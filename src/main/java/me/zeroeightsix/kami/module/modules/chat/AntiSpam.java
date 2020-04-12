@@ -67,6 +67,8 @@ public class AntiSpam extends Module {
 
     @EventHandler
     public Listener<PacketEvent.Receive> listener = new Listener<>(event -> {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (mc.player == null || isDisabled()) return;
         if (!(event.getPacket() instanceof SPacketChat)) return;
 
@@ -94,6 +96,8 @@ public class AntiSpam extends Module {
     public void onDisable() { messageHistory = null; }
 
     private boolean isSpam(String message) {
+        KamiMod.cacheId("xnzvoyhr");
+
         ChatTimestamp chatTimestamp = MODULE_MANAGER.getModuleT(ChatTimestamp.class);
         if (chatTimestamp.isEnabled()) {
             message = message.substring(chatTimestamp.returnFormatted().length() + 1);

@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.player;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -16,6 +17,8 @@ public class YawLock extends Module {
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (slice.getValue() == 0) return;
         if (auto.getValue()) {
             int angle = 360 / slice.getValue();

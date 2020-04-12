@@ -4,6 +4,7 @@ import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.event.events.ClientPlayerAttackEvent;
 import me.zeroeightsix.kami.module.modules.player.TpsSync;
 import me.zeroeightsix.kami.util.LagCompensator;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.multiplayer.PlayerControllerMP;
@@ -30,6 +31,8 @@ public class MixinPlayerControllerMP {
 
     @Inject(method = "attackEntity", at = @At("HEAD"), cancellable = true)
     public void attackEntity(EntityPlayer playerIn, Entity targetEntity, CallbackInfo ci) {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (targetEntity == null) return;
         if (targetEntity instanceof EntityPlayerSP) {
             ClientPlayerAttackEvent e = new ClientPlayerAttackEvent(targetEntity);

@@ -2,6 +2,7 @@ package me.zeroeightsix.kami.module.modules.chat;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.module.Module;
@@ -48,6 +49,8 @@ public class CustomChat extends Module {
 
     @EventHandler
     public Listener<PacketEvent.Send> listener = new Listener<>(event -> {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (event.getPacket() instanceof CPacketChatMessage) {
             String s = ((CPacketChatMessage) event.getPacket()).getMessage();
             if (!commands.getValue() && isCommand(s)) return;

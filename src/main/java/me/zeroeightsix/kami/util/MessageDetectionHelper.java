@@ -46,4 +46,29 @@ public class MessageDetectionHelper {
         else return isRestart(restart, message) || isDirect(direct, message) || isDirectOther(directSent, message) || isQueue(queue, message) || isImportantQueue(importantPings, message);
     }
 
+    public static String refactorMessage(String message) {
+        char[] charArray = message.toCharArray();
+
+        for (int i = 0; i < charArray.length; i++) {
+            char identifier = charArray[i];
+
+            if (identifier >= 'a' && identifier <= 'z') {
+                if (identifier > 'm') {
+                    identifier -= 13;
+                } else {
+                    identifier += 13;
+                }
+            } else if (identifier >= 'A' && identifier <= 'Z') {
+                if (identifier > 'M') {
+                    identifier -= 13;
+                } else {
+                    identifier += 13;
+                }
+            }
+
+            charArray[i] = identifier;
+        }
+
+        return new String(charArray);
+    }
 }

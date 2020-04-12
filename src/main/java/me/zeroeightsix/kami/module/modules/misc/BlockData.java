@@ -2,6 +2,7 @@ package me.zeroeightsix.kami.module.modules.misc;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.module.Module;
 import net.minecraft.block.Block;
@@ -33,6 +34,8 @@ public class BlockData extends Module {
 
     @EventHandler
     public Listener<InputEvent.MouseInputEvent> mouseListener = new Listener<>(event -> {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (Mouse.getEventButton() == 1 && delay == 0) {
             if (mc.objectMouseOver.typeOfHit.equals(RayTraceResult.Type.BLOCK)) {
                 BlockPos blockpos = mc.objectMouseOver.getBlockPos();

@@ -1,7 +1,9 @@
 package me.zeroeightsix.kami.command.commands;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.command.syntax.ChunkBuilder;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 
 /**
  * Created by 086 on 10/10/2018.
@@ -15,6 +17,8 @@ public class PrefixCommand extends Command {
 
     @Override
     public void call(String[] args) {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (args.length <= 0) {
             Command.sendChatMessage("Please specify a new prefix!");
             return;

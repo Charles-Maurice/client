@@ -6,6 +6,7 @@ import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.module.Module;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import me.zeroeightsix.kami.util.Wrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.play.client.CPacketChatMessage;
@@ -19,6 +20,8 @@ public class FormatChat extends Module {
 
     @Override
     public void onEnable() {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (Minecraft.getMinecraft().getCurrentServerData() == null) {
             Command.sendWarningMessage(getChatName() + " &6&lWarning: &r&6This does not work in singleplayer");
             disable();

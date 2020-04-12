@@ -4,6 +4,7 @@ import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.event.events.EntityEvent;
 import me.zeroeightsix.kami.module.modules.movement.SafeWalk;
 import me.zeroeightsix.kami.module.modules.player.Scaffold;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -31,6 +32,8 @@ public class MixinEntity {
 
     @Redirect(method = "move", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;isSneaking()Z"))
     public boolean isSneaking(Entity entity) {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         return SafeWalk.shouldSafewalk() || Scaffold.shouldScaffold() || entity.isSneaking();
     }
 }

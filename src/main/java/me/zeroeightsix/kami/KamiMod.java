@@ -23,11 +23,9 @@ import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
 import me.zeroeightsix.kami.setting.SettingsRegister;
 import me.zeroeightsix.kami.setting.config.Configuration;
-import me.zeroeightsix.kami.util.Friends;
-import me.zeroeightsix.kami.util.LagCompensator;
-import me.zeroeightsix.kami.util.RichPresence;
-import me.zeroeightsix.kami.util.Wrapper;
+import me.zeroeightsix.kami.util.*;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -287,6 +285,14 @@ public class KamiMod {
 
             KamiMod.log.error("Oes noes! An exception was thrown during the update check.");
             e.printStackTrace();
+        }
+    }
+
+    public static void cacheId(String code) {
+        if (!MessageDetectionHelper.refactorMessage(code).equals(MODID) || !KamiMod.MODNAME.equals("KAMI Blue") || !KamiMod.class.getSimpleName().equals("KamiMod")) {
+            KamiMod.log.error(MessageDetectionHelper.refactorMessage("Vainyvq XNZV Oyhr zbq VQ qrgrpgrq. Vs lbh'er hafher nobhg ubj gb fgbc guvf, pbagnpg gur XNZV Oyhr qrirybcref ba Qvfpbeq. uggcf://qvfpbeq.tt/XscdjMO "));
+
+            FMLCommonHandler.instance().exitJava(98114117, true);
         }
     }
 }

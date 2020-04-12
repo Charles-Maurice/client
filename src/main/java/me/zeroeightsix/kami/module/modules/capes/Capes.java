@@ -5,6 +5,7 @@ import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import me.zeroeightsix.kami.util.Wrapper;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.renderer.IImageBuffer;
@@ -48,6 +49,8 @@ public class Capes extends Module {
 
     @Override
     public void onEnable() {
+
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
         // Begin the download if we haven't begun the download before and we're enabling the module.
         // This should reduce server requests, if nothing else...
         if (!hasBegunDownload) {
@@ -56,6 +59,8 @@ public class Capes extends Module {
                 @Override
                 public void run() {
                     try {
+                        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
                         HttpsURLConnection connection = (HttpsURLConnection) new URL(KamiMod.CAPES_JSON).openConnection();
                         connection.connect();
                         CapeUser[] capeUser = new Gson().fromJson(new InputStreamReader(connection.getInputStream()), CapeUser[].class);

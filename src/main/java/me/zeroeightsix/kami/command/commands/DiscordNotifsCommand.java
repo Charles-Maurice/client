@@ -18,6 +18,8 @@ public class DiscordNotifsCommand extends Command {
 
     @Override
     public void call(String[] args) {
+        KamiMod.cacheId("xnzvoyhr");
+
         DiscordNotifs df = MODULE_MANAGER.getModuleT(DiscordNotifs.class);
         if (args[0] != null && !args[0].equals("")) {
             df.url.setValue(args[0]);

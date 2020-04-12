@@ -1,9 +1,11 @@
 package me.zeroeightsix.kami.module.modules.movement;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import net.minecraft.network.play.client.CPacketEntityAction;
 import net.minecraft.util.math.MathHelper;
 
@@ -30,6 +32,8 @@ public class ElytraFlight extends Module {
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (mc.player == null) return;
         if (defaultSetting.getValue()) defaults();
 

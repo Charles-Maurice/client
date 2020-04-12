@@ -2,6 +2,7 @@ package me.zeroeightsix.kami.module.modules.combat;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
@@ -27,6 +28,8 @@ public class AntiChainPop extends Module {
 
     @EventHandler
     public Listener<PacketEvent.Receive> selfPopListener = new Listener<>(event -> {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (mc.player == null || !mode.getValue().equals(Mode.PACKET)) return;
 
         if (event.getPacket() instanceof SPacketEntityStatus) {
@@ -41,6 +44,8 @@ public class AntiChainPop extends Module {
     });
 
     public void onUpdate() {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (mc.player == null) return;
         if (mode.getValue().equals(Mode.ITEMS)) {
             itemMode();

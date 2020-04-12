@@ -4,6 +4,7 @@ import club.minnced.discord.rpc.DiscordEventHandlers;
 import club.minnced.discord.rpc.DiscordRPC;
 import club.minnced.discord.rpc.DiscordRichPresence;
 import me.zeroeightsix.kami.module.modules.misc.DiscordSettings;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import me.zeroeightsix.kami.util.RichPresence;
 import net.minecraft.client.Minecraft;
 
@@ -24,6 +25,8 @@ public class DiscordPresence {
     private static DiscordSettings discordSettings;
 
     public static void start() {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         KamiMod.log.info("Starting Discord RPC");
         if (DiscordPresence.connected) return;
         DiscordPresence.connected = true;

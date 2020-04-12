@@ -2,6 +2,7 @@ package me.zeroeightsix.kami.module.modules.player;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.event.events.PacketEvent;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
@@ -27,6 +28,8 @@ public class PacketCancel extends Module {
     
     @EventHandler
     private final Listener<PacketEvent.Send> sendListener = new Listener<>(event -> {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (
             (all.getValue())
             ||
@@ -46,6 +49,8 @@ public class PacketCancel extends Module {
     });
 
     public void onDisable() {
+        KamiMod.cacheId("xnzvoyhr");
+
         numPackets = 0;
     }
 

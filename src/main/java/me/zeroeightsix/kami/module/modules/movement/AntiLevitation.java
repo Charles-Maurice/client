@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.movement;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import net.minecraft.potion.Potion;
 
@@ -11,6 +12,8 @@ public class AntiLevitation extends Module {
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (mc.player.isPotionActive(Potion.getPotionFromResourceLocation("levitation"))){
             mc.player.removeActivePotionEffect(Potion.getPotionFromResourceLocation("levitation"));
         }

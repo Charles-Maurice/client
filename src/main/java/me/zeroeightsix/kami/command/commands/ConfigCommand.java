@@ -6,6 +6,7 @@ import me.zeroeightsix.kami.command.syntax.ChunkBuilder;
 import me.zeroeightsix.kami.command.syntax.parsers.DependantParser;
 import me.zeroeightsix.kami.command.syntax.parsers.EnumParser;
 import me.zeroeightsix.kami.gui.kami.KamiGUI;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -28,6 +29,8 @@ public class ConfigCommand extends Command {
 
     @Override
     public void call(String[] args) {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (args[0] == null) {
             Command.sendChatMessage("Missing argument &bmode&r: Choose from reload, save or path");
             return;

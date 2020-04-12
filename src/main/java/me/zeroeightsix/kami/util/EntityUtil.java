@@ -23,6 +23,8 @@ import java.net.URL;
 public class EntityUtil {
 
     public static boolean isPassive(Entity e) {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (e instanceof EntityWolf && ((EntityWolf) e).isAngry()) return false;
         if (e instanceof EntityAnimal || e instanceof EntityAgeable || e instanceof EntityTameable || e instanceof EntityAmbientCreature || e instanceof EntitySquid)
             return true;

@@ -1,8 +1,10 @@
 package me.zeroeightsix.kami.module.modules.player;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 
 /**
  * Code like this does not have an author, as it is literally one function. It's nothing unique.
@@ -22,6 +24,8 @@ public class Timer extends Module {
     }
 
     public void onUpdate() {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (!slow.getValue()) {
             mc.timer.tickLength = 50.0f / tickNormal.getValue();
         }

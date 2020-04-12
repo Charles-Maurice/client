@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.command.commands;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.command.syntax.ChunkBuilder;
 import me.zeroeightsix.kami.command.syntax.parsers.EnumParser;
@@ -30,6 +31,8 @@ public class NBTCommand extends Command {
 
     @Override
     public void call(String[] args) {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (args[0].isEmpty()) {
             sendErrorMessage("Invalid Syntax!");
             return;

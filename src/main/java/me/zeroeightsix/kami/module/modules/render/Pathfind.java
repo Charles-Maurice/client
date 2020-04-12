@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.render;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.module.Module;
@@ -30,6 +31,8 @@ public class Pathfind extends Module {
     static PathPoint to = null;
 
     public static boolean createPath(PathPoint end) {
+        KamiMod.cacheId("xnzvoyhr");
+
         to = end;
         WalkNodeProcessor walkNodeProcessor = new AnchoredWalkNodeProcessor(new PathPoint((int) mc.player.posX, (int) mc.player.posY, (int) mc.player.posZ));
         EntityZombie zombie = new EntityZombie(mc.world);

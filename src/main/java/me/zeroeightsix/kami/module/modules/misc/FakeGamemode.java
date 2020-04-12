@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.misc;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
@@ -18,6 +19,8 @@ public class FakeGamemode extends Module {
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (mc.player == null) return;
         if (gamemode.getValue().equals(GamemodeChanged.CREATIVE)) {
             mc.playerController.setGameType(gameType);

@@ -1,11 +1,13 @@
 package me.zeroeightsix.kami.module.modules.misc;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.module.modules.combat.CrystalAura;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import net.minecraft.block.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -103,6 +105,8 @@ public class AutoSpawner extends Module {
 
     @Override
     protected void onEnable() {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (mc.player == null) { disable(); return; }
 
         buildStage = 1;

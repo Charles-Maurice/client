@@ -3,10 +3,12 @@ package me.zeroeightsix.kami.command.commands;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.mojang.util.UUIDTypeAdapter;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
 import me.zeroeightsix.kami.command.syntax.ChunkBuilder;
 import me.zeroeightsix.kami.command.syntax.parsers.EnumParser;
 import me.zeroeightsix.kami.util.Friends;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetworkPlayerInfo;
 
@@ -32,6 +34,8 @@ public class FriendCommand extends Command {
 
     @Override
     public void call(String[] args) {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (args[0] == null) {
             if (Friends.INSTANCE.friends.getValue().isEmpty()) {
                 Command.sendChatMessage("You currently don't have any friends added. &bfriend add <name>&r to add one.");

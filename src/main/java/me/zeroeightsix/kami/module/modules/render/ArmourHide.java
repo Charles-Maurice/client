@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.render;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -26,6 +27,8 @@ public class ArmourHide extends Module {
     }
 
     public static boolean shouldRenderPiece(EntityEquipmentSlot slotIn) {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (slotIn == EntityEquipmentSlot.HEAD && ArmourHide.INSTANCE.helmet.getValue()) {
             return true;
         } else if (slotIn == EntityEquipmentSlot.CHEST && ArmourHide.INSTANCE.chestplate.getValue()) {

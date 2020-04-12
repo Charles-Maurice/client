@@ -2,6 +2,7 @@ package me.zeroeightsix.kami.module.modules.movement;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.event.KamiEvent;
 import me.zeroeightsix.kami.event.events.EntityEvent;
 import me.zeroeightsix.kami.event.events.PacketEvent;
@@ -24,6 +25,8 @@ public class Velocity extends Module {
 
     @EventHandler
     private Listener<PacketEvent.Receive> packetEventListener = new Listener<>(event -> {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (event.getEra() == KamiEvent.Era.PRE) {
             if (event.getPacket() instanceof SPacketEntityVelocity) {
                 SPacketEntityVelocity velocity = (SPacketEntityVelocity) event.getPacket();

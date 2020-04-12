@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.client;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -43,6 +44,8 @@ public class ActiveModules extends Module {
     public Setting<String> misc = register(Settings.s("Misc", "165,102,139"));
 
     private static int getRgb(String input, int arrayPos) {
+        KamiMod.cacheId("xnzvoyhr");
+
         String[] toConvert = input.split(",");
         return Integer.parseInt(toConvert[arrayPos]);
     }

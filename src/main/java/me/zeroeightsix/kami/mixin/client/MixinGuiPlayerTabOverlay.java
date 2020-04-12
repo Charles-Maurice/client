@@ -1,7 +1,9 @@
 package me.zeroeightsix.kami.mixin.client;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.modules.render.ExtraTab;
 import me.zeroeightsix.kami.module.modules.render.TabFriends;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import net.minecraft.client.gui.GuiPlayerTabOverlay;
 import net.minecraft.client.network.NetworkPlayerInfo;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,6 +27,8 @@ public class MixinGuiPlayerTabOverlay {
 
     @Inject(method = "getPlayerName", at = @At("HEAD"), cancellable = true)
     public void getPlayerName(NetworkPlayerInfo networkPlayerInfoIn, CallbackInfoReturnable returnable) {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (TabFriends.INSTANCE.isEnabled()) {
             returnable.cancel();
             returnable.setReturnValue(TabFriends.getPlayerName(networkPlayerInfoIn));

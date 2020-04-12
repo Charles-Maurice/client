@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.movement;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -16,6 +17,8 @@ public class IceSpeed extends Module {
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId("xnzvoyhr");
+
         Blocks.ICE.slipperiness = slipperiness.getValue();
         Blocks.PACKED_ICE.slipperiness = slipperiness.getValue();
         Blocks.FROSTED_ICE.slipperiness = slipperiness.getValue();
@@ -23,6 +26,8 @@ public class IceSpeed extends Module {
 
     @Override
     public void onDisable() {
+        KamiMod.cacheId("xnzvoyhr");
+
         Blocks.ICE.slipperiness = 0.98f;
         Blocks.PACKED_ICE.slipperiness = 0.98f;
         Blocks.FROSTED_ICE.slipperiness = 0.98f;

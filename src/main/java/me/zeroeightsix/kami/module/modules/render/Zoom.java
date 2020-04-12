@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.render;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -21,6 +22,8 @@ public class Zoom extends Module {
     private Setting<Boolean> sens = register(Settings.b("Sensitivity", true));
 
     public void onEnable() {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (mc.player == null) return;
         fov = mc.gameSettings.fovSetting;
         sensi = mc.gameSettings.mouseSensitivity;
@@ -34,6 +37,8 @@ public class Zoom extends Module {
     }
 
     public void onUpdate() {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (mc.player == null) return;
         mc.gameSettings.fovSetting = fovChange.getValue();
         mc.gameSettings.smoothCamera = smoothCamera.getValue();

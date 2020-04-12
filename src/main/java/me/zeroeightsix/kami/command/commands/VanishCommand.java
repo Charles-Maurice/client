@@ -1,6 +1,8 @@
 package me.zeroeightsix.kami.command.commands;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.command.Command;
+import me.zeroeightsix.kami.util.MessageDetectionHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 
@@ -20,6 +22,8 @@ public class VanishCommand extends Command {
 
     @Override
     public void call(String[] args) {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         if (mc.player.getRidingEntity() != null && vehicle == null) {
             vehicle = mc.player.getRidingEntity();
             mc.player.dismountRidingEntity();

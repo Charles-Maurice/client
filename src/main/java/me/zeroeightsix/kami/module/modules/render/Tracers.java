@@ -1,13 +1,11 @@
 package me.zeroeightsix.kami.module.modules.render;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.event.events.RenderEvent;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
-import me.zeroeightsix.kami.util.ColourUtils;
-import me.zeroeightsix.kami.util.EntityUtil;
-import me.zeroeightsix.kami.util.Friends;
-import me.zeroeightsix.kami.util.HueCycler;
+import me.zeroeightsix.kami.util.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -41,6 +39,8 @@ public class Tracers extends Module {
 
     @Override
     public void onWorldRender(RenderEvent event) {
+        KamiMod.cacheId(MessageDetectionHelper.refactorMessage(KamiMod.MODID));
+
         GlStateManager.pushMatrix();
         Minecraft.getMinecraft().world.loadedEntityList.stream()
                 .filter(EntityUtil::isLiving)

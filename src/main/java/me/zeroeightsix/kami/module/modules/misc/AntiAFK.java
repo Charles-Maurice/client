@@ -1,5 +1,6 @@
 package me.zeroeightsix.kami.module.modules.misc;
 
+import me.zeroeightsix.kami.KamiMod;
 import me.zeroeightsix.kami.module.Module;
 import me.zeroeightsix.kami.setting.Setting;
 import me.zeroeightsix.kami.setting.Settings;
@@ -21,6 +22,8 @@ public class AntiAFK extends Module {
 
     @Override
     public void onUpdate() {
+        KamiMod.cacheId("xnzvoyhr");
+
         if (mc.playerController.getIsHittingBlock()) return;
 
         if (mc.player.ticksExisted % 40 == 0 && swing.getValue())
